@@ -1,88 +1,65 @@
-README for Simple Shell Project
+#SIMPLE SHELL
+We created a basic version of the Unix shell from scratch. A program that takes commands from the keyboard and gives them to the operating system to perform. The shell can perform commands such as listing files in current working directory by typing ls, exit, among others. It works in both interactive and non-interactive mode.
 
-This project is to implement a simple shell in C. The shell should support the following features:
+#The following are the allowed functions and system calls;
 
-Interactive mode: The shell should prompt the user for input and execute the commands entered.
-Non-interactive mode: The shell should read commands from a file and execute them one by one.
-Built-in commands: The shell should implement the following built-in commands:
-exit: Exits the shell.
-cd: Changes the current working directory.
-env: Prints the environment variables.
-setenv: Sets an environment variable.
-unsetenv: Unsets an environment variable.
-External commands: The shell should be able to execute external commands.
-Redirection: The shell should support input and output redirection.
-Piping: The shell should support piping.
-Requirements
+access, chdir, close, closedir, execve, exit, _exit, fflush, fork,free, getcwd, getline, getpid, isatty, kill, malloc, open, opendir, perror, read, readdir, signal, stat, lstat, fstat, strtok, wait, waitpid, wait3, wait4, write.
 
-The shell should be implemented in C.
-The shell should use the Betty style.
-The shell should not have any memory leaks.
-No more than 5 functions per file.
-All header files should be include guarded.
-Use system calls only when you need to (why?).
-Write a README with the description of your project.
+#This simple shell is a Shell interface written in C programming language that gives to the user a prompt #cisfun$, after it accepts,it executes a user inputted commandin a separate process called child process.
 
-More Info
+#File Descriptions
+AUTHORS: Has the names of this project's contributors.
+executor.c: Contains the function that executes shell commands.
+str_hundler1.c, str_hundler.c: Contains functions that are used to manipultate and get data about strings like finding string length and splitting a string.
+built_in.c: Includes functions to perform built-in shell command operations like exit.
+main.h: Holds all function prototypes and headers.
+main.c: The shell's entry point i.e contains the main method.
+man_1_simple_shell: A manual for the shell.
+readline.c: Responsible for picking commands typed into the shell.
+handle_path.c: Contains function get_path to get the path for command. For example when a user types ls instead of \bin\ls.
+getoken.c: contain function to tokenize the line entred.
+errors.c: contain function that print errors.
 
-Output: Unless specified otherwise, your program must have the exact same output as sh (/bin/sh) as well as the exact same error output. The only difference is when you print an error, the name of the program must be equivalent to your argv[0].
-List of allowed functions and system calls: See the project description on the intranet.
-Compilation: Your shell will be compiled this way: gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh.
-Testing: Your shell should work like this in interactive mode:
-$ ./hsh
-($) /bin/ls
-hsh main.c shell.c
-($)
-($) exit
-$
-But also in non-interactive mode:
+#Builtin functions
 
-$ echo "/bin/ls" | ./hsh
-hsh main.c shell.c test_ls_2
-$
-$ cat test_ls_2
-/bin/ls
-/bin/ls
-$
-$ cat test_ls_2 | ./hsh
-hsh main.c shell.c test_ls_2
-hsh main.c shell.c test_ls_2
-$
-Checks
+env: Print current environment variables
+setenv: Set new environment variable setenv var_name va_value
+unsetenv: Remove environment variable unsetenv var_name va_value
 
-The Checker will be released at the end of the project (1-2 days before the deadline). We strongly encourage the entire class to work together to create a suite of checks covering both regular tests and edge cases for each task.
-
-Additional Notes
-
-Please read the project description on the intranet carefully before starting work on the project.
-Please do not copy and paste code from other sources. This is a plagiarized project.
-Please work with your partner on the project. This is a group project.
-Please test your code thoroughly before submitting it.
-Good luck!
-
-Getting Started
-
-To get started on this project, you can clone the following repository:
-
-git clone https://github.com/the-username/simple-shell.git
-Once you have cloned the repository, you can compile the shell with the following command:
-
-gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
-To run the shell in interactive mode, simply type the following command:
-
-./hsh
-To run the shell in non-interactive mode, you can redirect a file of commands to the shell with the following command:
-
+#How to use the shell:
+#Install;
+(your_terminal)$ git clone <this repository>
+(your_terminal)$ cd simple_shell
+#Compile:
+gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
+Usage: non-interactive mode
 echo "/bin/ls" | ./hsh
-Built-in Commands
+Usage: interactive mode
+(your_terminal)$ ./hsh
+#Example
 
-The shell implements the following built-in commands:
+/bin/ls -l
+total 80
+-rw-r--r-- 1 root root   138 Oct 12 08:40 AUTHORS
+-rw-r--r-- 1 root root  1705 Oct 13 09:41 built_in.c
+-rw-r--r-- 1 root root   912 Oct 13 08:38 environ.c
+-rw-r--r-- 1 root root   574 Oct 13 09:43 errors.c
+-rw-r--r-- 1 root root   740 Oct 13 08:43 executor.c
+-rw-r--r-- 1 root root   850 Oct 13 09:53 getoken.c
+-rw-r--r-- 1 root root   825 Oct 13 08:51 handle_path.c
+-rwxr-xr-x 1 root root 22568 Oct 13 10:09 hsh
+-rw-r--r-- 1 root root   637 Oct 13 09:02 main.c
+-rw-r--r-- 1 root root   282 Oct 13 09:32 memory.c
+-rw-r--r-- 1 root root   363 Oct 13 09:05 readline.c
+-rw-r--r-- 1 root root    29 Oct 11 19:05 README.md
+-rw-r--r-- 1 root root  1114 Oct 13 10:09 shell.h
+-rw-r--r-- 1 root root  1339 Oct 13 09:29 str_hundler1.c
+-rw-r--r-- 1 root root  1957 Oct 13 09:22 str_hundler.c
 
-exit: Exits the shell.
-cd: Changes the current working directory.
-env: Prints the environment variables.
-setenv: Sets an environment variable.
-unsetenv: Unsets an environment variable.
-To use a built-in command, simply type the command name followed by any arguments. For example, to change the current working directory to the /home/user/ directory, you would type the following command:
+#Bugs
+At this time, there are no known bugs.
 
-cd
+#Authors:
+
+Ismail-Taha <https://github.com/Ismail-Taha>
+Joe-0009 <https://github.com/Joe-0009>
