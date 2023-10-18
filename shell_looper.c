@@ -1,11 +1,14 @@
 #include "shell.h"
-/*
- * shell_looper - Main loop for the simple shell
+
+/**
+ * shell_looper - function contains loop for the simple shell
  *
- * argv: list of arguments
+ * @argv: list of arguments
  *
- * Return: exit status
+ * Return: status of the exit of shell
+ *
  */
+
 int shell_looper(char **argv)
 {
 	char *line = NULL, **cmd = NULL;
