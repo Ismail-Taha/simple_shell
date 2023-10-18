@@ -41,7 +41,7 @@ void _builtcmd(char **cmd, char **argv, int *status, int indx)
 	{
 		if (_strcmp(cmd[1], "-") == 0)
 			_cd("..");
-		else	
+		else
 			_cd(cmd[1]);
 	}
 }
