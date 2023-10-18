@@ -20,7 +20,8 @@ void exit_shel(char **cmd, char **argv, int *status, int indx);
 void pr_env(char **cmd, int *status);
 
 /* tools_function*/
-char *read_line(void);
+char *return_line(void);
+int shell_looper(char **argv);
 char **get_token(char *line);
 char *_get_path(char *cmd);
 char *_getenv(char *var);
