@@ -7,13 +7,13 @@
  * @indx: The index of the command in the input.
  */
 
-void pr_error(char *name, char *cmd, int indx)
+void pr_error(char *argv_0, char *cmd, int indx)
 {
 	char *index, mesg[] = ": not found\n";
 
 	index = int_asc(indx);
 
-	write(STDERR_FILENO, name, _strlen(name));
+	write(STDERR_FILENO, argv_0, _strlen(argv_0));
 	write(STDERR_FILENO, ": ", 2);
 	write(STDERR_FILENO, index, _strlen(index));
 	write(STDERR_FILENO, ": ", 2);

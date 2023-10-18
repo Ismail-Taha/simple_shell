@@ -23,14 +23,14 @@ int is_builtcmd(char *cmd)
 }
 
 /**
- * handl_builtcmd - Handle built-in commands.
+ * _builtcmd - Handle built-in commands.
  * @cmd: The array of command and arguments.
  * @argv: The program's arguments.
  * @status: The status variable to set.
  * @indx: The index of the command in the input.
  */
 
-void handl_builtcmd(char **cmd, char **argv, int *status, int indx)
+void _builtcmd(char **cmd, char **argv, int *status, int indx)
 {
 	if (_strcmp(cmd[0], "exit") == 0)
 		exit_shel(cmd, argv, status, indx);

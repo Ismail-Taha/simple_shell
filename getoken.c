@@ -7,19 +7,19 @@
  * Return: An array of token strings.
  */
 
-char **get_token(char *line)
+char **getoken(char *returned_line)
 {
 	char *token = NULL, *tokencp = NULL;
 	char **cmd = NULL;
 	int cont = 0, i = 0;
 
-	if (!line)
+	if (!returned_line)
 		return (NULL);
-	tokencp = _strdup(line);
+	tokencp = _strdup(returned_line);
 	token = strtok(tokencp, SPECIF);
 	if (token == NULL)
 	{
-		free(line), line = NULL;
+		free(returned_line), returned_line = NULL;
 		free(tokencp), tokencp = NULL;
 		return (NULL);
 	}
@@ -33,17 +33,17 @@ char **get_token(char *line)
 	cmd = malloc(sizeof(char *) * (cont + 1));
 	if (!cmd)
 	{
-		free(line), line = NULL;
+		free(returned_line), returned_line = NULL;
 		return (NULL);
 	}
-	token = strtok(line, SPECIF);
+	token = strtok(returned_line, SPECIF);
 	while (token)
 	{
 		cmd[i] = _strdup(token);
 		token = strtok(NULL, SPECIF);
 		i++;
 	}
-	free(line), line = NULL;
+	free(returned_line), returned_line = NULL;
 	cmd[i] = NULL;
 	return (cmd);
 }

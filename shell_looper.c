@@ -26,11 +26,11 @@ int shell_looper(char **argv)
 		}
 
 		indx++;
-		cmd = get_token(line);
+		cmd = getoken(line);
 		if (!cmd)
 			continue;
 		if (is_builtcmd(cmd[0]))
-			handl_builtcmd(cmd, argv, &status, indx);
+			_builtcmd(cmd, argv, &status, indx);
 		else
 		{
 			status = _executer(cmd, argv, indx, count);

@@ -9,7 +9,7 @@
 
 char *_get_path(char *cmd)
 {
-	char *path_env, *full, *dir;
+	char *path_env, *pathpluscmd, *dir;
 	int i;
 	struct stat st;
 
@@ -28,18 +28,18 @@ char *_get_path(char *cmd)
 	dir = strtok(path_env, ":");
 	while (dir)
 	{
-		full = malloc(_strlen(dir) + _strlen(cmd) + 2);
-		if (full)
+		pathpluscmd = malloc(_strlen(dir) + _strlen(cmd) + 2);
+		if (pathpluscmd)
 		{
-			_strcpy(full, dir);
-			_strcat(full, "/");
-			_strcat(full, cmd);
-			if (stat(full, &st) == 0)
+			_strcpy(pathpluscmd, dir);
+			_strcat(pathpluscmd, "/");
+			_strcat(pathpluscmd, cmd);
+			if (stat(pathpluscmd, &st) == 0)
 			{
 				free(path_env);
-				return (full);
+				return (pathpluscmd);
 			}
-			free(full), full = NULL;
+			free(pathpluscmd), pathpluscmd = NULL;
 			dir = strtok(NULL, ":");
 		}
 	}

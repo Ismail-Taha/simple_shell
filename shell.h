@@ -22,13 +22,13 @@ void pr_env(char **cmd, int *status);
 /* tools_function*/
 char *return_line(void);
 int shell_looper(char **argv);
-char **get_token(char *line);
+char **getoken(char *returned_line);
 char *_get_path(char *cmd);
 char *_getenv(char *var);
 int _executer(char **cmd, char **argv, int count, int indx);
-void pr_error(char *name, char *cmd, int indx);
+void pr_error(char *argv_0, char *cmd, int indx);
 int is_builtcmd(char *cmd);
-void handl_builtcmd(char **cmd, char **argv, int *status, int indx);
+void _builtcmd(char **cmd, char **argv, int *status, int indx);
 void exit_error(char **cmd, char **argv, int indx);
 
 /*string_hundler_functions*/
