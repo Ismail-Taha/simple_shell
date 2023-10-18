@@ -9,7 +9,7 @@
  * Return: The exit status of the executed command.
  */
 
-int _executer(char **cmd, char **argv, int indx)
+int _executer(char **cmd, char **argv, int count, int indx)
 {
 	char *full_cmd;
 	pid_t child;
@@ -24,6 +24,7 @@ int _executer(char **cmd, char **argv, int indx)
 	}
 
 	child = fork();
+	count++;
 	if (child == 0)
 	{
 		if (execve(full_cmd, cmd, environ) == -1)

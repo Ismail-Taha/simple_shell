@@ -12,7 +12,7 @@
 int shell_looper(char **argv)
 {
 	char *line = NULL, **cmd = NULL;
-	int status = 0, indx = 0;
+	int status = 0, indx = 0, count = 1;
 
 	while (1)
 	{
@@ -33,7 +33,7 @@ int shell_looper(char **argv)
 			handl_builtcmd(cmd, argv, &status, indx);
 		else
 		{
-			status = _executer(cmd, argv, indx);
+			status = _executer(cmd, argv, indx, count);
 		}
 	}
 }

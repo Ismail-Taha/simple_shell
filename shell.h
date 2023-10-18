@@ -25,7 +25,7 @@ int shell_looper(char **argv);
 char **get_token(char *line);
 char *_get_path(char *cmd);
 char *_getenv(char *var);
-int _executer(char **cmd, char **argv, int indx);
+int _executer(char **cmd, char **argv, int count, int indx);
 void pr_error(char *name, char *cmd, int indx);
 int is_builtcmd(char *cmd);
 void handl_builtcmd(char **cmd, char **argv, int *status, int indx);
