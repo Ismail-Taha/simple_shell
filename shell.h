@@ -18,6 +18,7 @@ extern char **environ;
 /*builtin_functions*/
 void exit_shel(char **cmd, char **argv, int *status, int indx);
 void pr_env(char **cmd, int *status);
+int _cd(const char *target_dir);
 
 /* tools_function*/
 char *return_line(void);

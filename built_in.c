@@ -37,6 +37,13 @@ void _builtcmd(char **cmd, char **argv, int *status, int indx)
 
 	else if (_strcmp(cmd[0], "env") == 0)
 		pr_env(cmd, status);
+	else if (_strcmp(cmd[0], "cd") == 0)
+	{
+		if (_strcmp(cmd[1], "-") == 0)
+			_cd("..");
+		else	
+			_cd(cmd[1]);
+	}
 }
 
 /**
