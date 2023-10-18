@@ -1,6 +1,6 @@
 #include "shell.h"
 /*
- * shell_loop - Main loop for the simple shell
+ * shell_looper - Main loop for the simple shell
  *
  * argv: list of arguments
  *

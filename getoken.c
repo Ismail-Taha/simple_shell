@@ -48,7 +48,6 @@ char **get_token(char *line)
 	return (cmd);
 }
 
-
 /**
  * freearray - Free memory allocated for an array of strings.
  * @ary: The array of strings to free.
@@ -56,16 +55,16 @@ char **get_token(char *line)
 
 void freearray(char **ary)
 {
-        int i;
+	int i;
 
-        if (!ary)
-                return;
+	if (!ary)
+		return;
 
-        for (i = 0; ary[i]; i++)
-        {
-                free(ary[i]);
-                ary[i] = NULL;
-        }
+	for (i = 0; ary[i]; i++)
+		{
+		free(ary[i]);
+		ary[i] = NULL;
+	}
 
-        free(ary), ary = NULL;
+	free(ary), ary = NULL;
 }
