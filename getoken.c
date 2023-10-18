@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
- * get_token - Tokenize a string into an array of tokens.
- * @line: The input string to tokenize.
+ * getoken - Tokenize a string into an array of tokens.
+ * @returned_line: The input string to tokenize.
  *
  * Return: An array of token strings.
  */

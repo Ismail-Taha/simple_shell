@@ -4,6 +4,7 @@
  * _executer - Execute a command.
  * @cmd: The array of command and arguments.
  * @argv: The program's arguments.
+ * @count: number of forks
  * @indx: The index of the command in the input.
  *
  * Return: The exit status of the executed command.

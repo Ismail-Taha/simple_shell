@@ -2,7 +2,7 @@
 
 /**
  * pr_error - Print an error message to standard error.
- * @name: The program name.
+ * @argv_0: The program name.
  * @cmd: The command causing the error.
  * @indx: The index of the command in the input.
  */
